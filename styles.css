@@ -10,6 +10,11 @@
     --gold-hover: #e9cb1e;
 }
 
+::selection {
+    background-color: rgb(26 145 90 / 1);
+    color: white;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -19,7 +24,6 @@
 body {
     font-family: "Roboto", sans-serif;
     overflow-x: hidden;
-    background-color: white;
 }
 
 /* =============== Navbar =============== */
@@ -89,16 +93,18 @@ body {
     transition: all 0.3s;
     cursor: pointer;
     background: transparent;
-    font-size: 1.2em;
-    font-weight: 550;
     margin-left: 15px;
     transition: all 0.3s ease-in-out;
+    font-size: 1.2em;
+    font-weight: 550;
+    color: white;
+    text-decoration: none;
 }
 
 .nav-btn:hover {
-    font-size: 1.3em;
     border-radius: 45px;
-    background-color: #e3c61d;
+    background-color: white;
+    color: black;
 }
 
 /* ================== section-a Home ============== */
@@ -108,6 +114,9 @@ body {
     width: 100%;
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
+    background-color: #000;
+    border: 1px solid transparent;
 }
 
 .section-a .container {
@@ -117,13 +126,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 
 #myVideo {
     position: absolute;
-    top: 0;
-    left: 0;
+    z-index: 1;
     min-width: 100%;
     min-height: 100vh;
     filter: invert(7%);
@@ -134,12 +143,12 @@ body {
 }
 
 .home-intro-title {
-    font-size: 10rem;
+    font-size: 13rem;
     color: white;
-    letter-spacing: 100px;
-    font-family: "Yeseva One", serif;
-    font-weight: 800;
     font-style: normal;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 200;
+
 }
 
 .home-intro-para {
@@ -155,7 +164,10 @@ body {
 /* ================= section-b ================ */
 
 .section-b {
-    height: 85vh;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    background-color: #181616;
 }
 
 .section-b .container {
@@ -171,11 +183,12 @@ body {
     letter-spacing: 3px;
     font-style: normal;
     font-size: 3.3rem;
-    color: rgb(26 145 90 / 1);
+    color: white;
 }
 
 .section-b .container .card {
     border: none;
+    background-color: transparent;
 }
 
 .card img {
@@ -189,11 +202,8 @@ body {
 
 .card .card-body {
     border-top: 2px solid gray;
-}
-
-.section-a,
-.section-b {
-    margin-bottom: 50px;
+    color: white;
+    opacity: 0.9;
 }
 
 /* ================== loop ============== */
@@ -203,7 +213,6 @@ body {
     height: 10%;
     width: 100%;
     font-size: 50px;
-    margin-top: 25px;
     white-space: nowrap;
     font-family: gilroy;
 }
@@ -217,7 +226,7 @@ body {
 }
 
 #loop > h1 > span {
-    -webkit-text-stroke: 1.2px #000;
+    -webkit-text-stroke: 1.2px #ffffff;
     color: transparent;
     font-weight: 500;
 }
@@ -239,11 +248,16 @@ body {
 .section-c {
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-c .container {
+    height: 100vh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
-    position: relative;
 }
 
 .people {
@@ -254,7 +268,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #4f5960;
+    background-color: #181616;
     color: white;
 }
 
@@ -288,6 +302,60 @@ body {
     max-width: 100%;
 }
 
+/* =========== about ============= */
+
+.section-d {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-d .about-img {
+    background-image: url('assets/images/About.avif');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 120vh;
+    width: 100%;
+    position: fixed;
+    bottom: -100px;
+    z-index: -1;
+}
+
+.about {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between
+}
+
+.about-title {
+    width: 50%;
+    height: 550px;
+    text-align: center;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-style: normal;
+    font-size: 3.3rem;
+}
+
+.about-text {
+    width: 660px;
+    padding: 25px;
+}
+
+.about-text p {
+    line-height: 40px;
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.3rem;
+}
+
 /* ===================== footer =============== */
 .site-footer {
     background-color: #141414;
@@ -306,14 +374,6 @@ body {
     margin: 20px 0
 }
 
-.site-footer h6 {
-    color: #fff;
-    font-size: 16px;
-    text-transform: uppercase;
-    margin-top: 5px;
-    letter-spacing: 2px
-}
-
 .site-footer a {
     color: #737373;
 }
@@ -321,11 +381,6 @@ body {
 .site-footer a:hover {
     color: #3366cc;
     text-decoration: none;
-}
-
-.footer-links {
-    padding-left: 0;
-    list-style: none
 }
 
 .footer-links li {
@@ -363,23 +418,6 @@ body {
 
 .copyright-text {
     margin: 0
-}
-
-@media (max-width:991px) {
-    .site-footer [class^=col-] {
-        margin-bottom: 30px
-    }
-}
-
-@media (max-width:767px) {
-    .site-footer {
-        padding-bottom: 0
-    }
-
-    .site-footer .copyright-text,
-    .site-footer .social-icons {
-        text-align: center
-    }
 }
 
 .social-icons {
@@ -451,47 +489,25 @@ body {
     .social-icons li.title {
         display: block;
         margin-right: 0;
-        font-weight: 600
+        font-weight: 600;
     }
 }
 
 /* ===================== end =============== */
 
-
 /* ============== thank you section ========== */
-.thank-you {
-    position: relative;
-    height: 400px;
-}
-
-.thank {
-    position: fixed;
-    bottom: -500px;
-    z-index: -1;
-}
-
-.thank img {
-    min-width: 100vw;
-    width: 100%;
-    position: absolute;
-    bottom: -300px;
-    object-fit: cover;
-}
 
 .thank-message {
-    position: fixed;
-    bottom: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    z-index: -1;
     color: white;
 }
 
 .thank-message h1 {
-font-size: 7rem;
+    font-size: 7rem;
     font-family: "Protest Guerrilla", sans-serif;
     font-weight: 200;
     letter-spacing: 7px;
@@ -500,41 +516,168 @@ font-size: 7rem;
 /* ============== end ============= */
 
 
-/* MEDIA QUERIES  */
 
-@media (max-width: 1440px) {
-    .section-a .container img {
-        right: 0;
-    }
+/* ================== store ================ */
+
+.store {
+    background-color: #181616;
 }
 
-/* MOBILE */
+.store .store-home-title {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 200;
+    letter-spacing: 3px;
+    font-style: normal;
+    font-size: 3.3rem;
+    letter-spacing: 5px;
+    left: 50px;
+    top: 30px;
+    position: fixed;
+}
 
-@media (max-width: 700px) {
+.store-home-title a {
+    color: white;
+}
 
-    .Navbar .container {
-        margin: 10px auto;
-        grid-template-columns: 1fr;
-        grid-gap: 10px;
-    }
+.rolex-logo {
+    position: fixed;
+    right: 50px;
+    top: 30px;
+    cursor: pointer;
+}
 
-    .Navbar .container {
-        display: flex;
-        flex-direction: column;
-        margin: 10px auto;
-        align-items: center;
-        justify-content: center;
-    }
+.store .products {
+    display: flex;
+    flex-direction: column;
+}
 
-    .section-a .container {
-        grid-template-columns: 1fr;
-        grid-gap: 0;
-    }
+/* ================== cards ================= */
 
-    .section-b .containerline {
-        grid-template-columns: 1fr;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-    }
+.products .product img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: -110px;
+}
+
+.products .product .product-detail {
+    position: relative;
+    color: white;
+    bottom: 160px;
+    left: 220px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3.3rem;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.product-detail .product-title {
+    font-size: 3.5rem;
+}
+
+/* ======================= login =============== */
+
+.signin {
+    background-color: #181616;
+    position: absolute;
+    width: 400px;
+    background: #222;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 9);
+}
+
+.signin .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.signin .content h2 {
+    font-size: 2em;
+    color: white;
+    text-transform: uppercase;
+}
+
+.signin .content .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.signin .content .form .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+.signin .content .form .inputBox input {
+    position: relative;
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 25px 10px 7.5px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.signin .content .form .inputBox i {
+    position: absolute;
+    left: 0;
+    padding: 15px 10px;
+    font-style: normal;
+    color: #aaa;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.signin .content .form .inputBox input:focus ~ i,
+.signin .content .form .inputBox input:valid ~ i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: #fff;
+}
+
+.signin .content .form .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.signin .content .form .links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.signin .content .form .links a:nth-child(2) {
+    color: white;
+    font-weight: 600;
+}
+
+.signin .content .form .inputBox input[type="submit"] {
+    padding: 10px;
+    background: white;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+input[type="submit"]:active {
+    opacity: 0.6;
 }
