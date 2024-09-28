@@ -16,13 +16,15 @@
 
 <body>
     <h1 style="position: absolute;left: 70px;top: 50px;"><a href="index.html" class="text-decoration-none text-white">Home</a></h1>
+    <img src="https://cdn.freelogovectors.net/wp-content/uploads/2023/11/rolexlogo-freelogovectors.net_.png "
+        alt="Rolex Logo" style="position: absolute;right: 70px;top: 50px;" height="60px">
     <div class="d-flex align-items-center justify-content-center" style="width: 100%;height: 100vh;background-color: #181616;">
         <div class="signin">
             <div class="content">
 
                 <h2>Sign In</h2>
-
-                <form class="form" name="signin_form" onsubmit="validate_signin()">
+                <p id="errorMessage" style="color: white;display: none;"></p>
+                <form class="form" id="form">
                     <div class="inputBox">
                         <input type="text" id="username" autocomplete="off"><i>Username</i>
                     </div>
@@ -45,19 +47,26 @@
 
 
     <script>
-        function validate_signin() {
-           let username = document.signin_form.username.value;
-           let password = document.signin_form.password.value;
+        document.getElementById('form').addEventListener('submit',function (event) {
+            event.preventDefault();
 
-            if (username == "") {
-                alert("Username is required.");
-                return false;
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let errorMessage = document.getElementById('errorMessage');
+
+            // Check if the fields are empty
+            if (username === '' || password === '') {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = 'Both Username and Password are required!';
+                setInterval(function (){
+                    errorMessage.style.display = "none";
+                },3000);
+            } else {
+                // If both fields are filled, redirect to index.html
+                errorMessage.textContent = '';  // Clear any previous error message
+                window.location.href = 'index.html';  // Redirect to index.html
             }
-            if (password == "") {
-                alert("Password is required.");
-                return false;
-            }
-        }
+        })
     </script>
 </body>
 
